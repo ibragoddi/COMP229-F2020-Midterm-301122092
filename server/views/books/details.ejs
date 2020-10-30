@@ -1,3 +1,10 @@
+<!--
+File name: details.ejs
+Student’s Name: Ibrahim Goddi
+StudentID: 301122092
+Date: Oct 30, 2020
+Mid-Term Exam
+-->
 <% include ../partials/header.ejs %>
 
     <!-- MAIN CONTENT -->
@@ -5,6 +12,8 @@
       <div class="row">
         <div class="col-md-offset-3 col-md-6">
           <h1><%= title %></h1>
+            <!-- The value of the action attribute depends on whether this view has been rendered
+            from add or edit routes: The edit parameter is set by the route calling this view. -->
             <form class="form" method="post" action="<%=edit!=null?'/books/'+edit:'/books/add'%>">
               <div class="form-group">
                 <label for="NameTextField">Title</label>

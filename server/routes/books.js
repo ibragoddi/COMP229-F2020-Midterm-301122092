@@ -1,3 +1,11 @@
+/*
+File name: books.js
+Student’s Name: Ibrahim Goddi
+StudentID: 301122092
+Date: Oct 30, 2020
+Mid-Term Exam
+*/
+
 // modules required for routing
 let express = require('express');
 let router = express.Router();
@@ -23,7 +31,7 @@ router.get('/', (req, res, next) => {
 
 });
 
-//  GET the Book Details page in order to add a new Book
+//  GET the Book Details page in order to add a new Book (EDIT)
 router.get('/add', (req, res, next) => {
 
     /*****************
@@ -33,7 +41,8 @@ router.get('/add', (req, res, next) => {
         {
             title: 'Books Add Page',
             books: {},
-            edit: null
+            edit: null // This renders the details view with add new book mode (action attribute of the form).
+
         });
 
 });
@@ -69,7 +78,7 @@ router.get('/:id', (req, res, next) => {
             {
                 title: 'Books Edit Page',
                 books: dbBook,
-                edit: id
+                edit: id // This renders the details view with edit book mode. (action attribute of the form)
             });
     });
 });
