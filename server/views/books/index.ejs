@@ -1,0 +1,65 @@
+<% include ../partials/header.ejs %>
+
+    <!-- MAIN CONTENT -->
+    <div class="container">
+      <div class="row">
+        <div class="col-md-offset-1 col-md-10">
+          <h3>Favourite Books List </h3>
+          <!-- ------------------------ -->
+          <!-- The Add button has been fixed -->
+          <!-- ------------------------ -->
+          <a href="/books/add" class="btn btn-primary"><i class="fa fa-plus"></i> Add a book</a>
+          <br>
+          <div class="table-responsive">
+            <table class="table table-bordered table-striped table-hover">
+              <thead>
+                <tr>
+                  <th>Title</th>
+                  <th class="text-center">Price</th>
+                  <th class="text-center">Author</th>
+                  <th class="text-center">Genre</th>
+                  <th class="text-center"></th>
+                  <th class="text-center"></th>
+                </tr>
+                </thead>
+                <tbody>
+                <!-- Template Row -->
+                <% for (let count = 0; count < books.length; count++) { %>
+                <tr>
+                  <td><%= books[count].Title %></td>
+                  <td class="text-center">$<%= books[count].Price %></td>
+                  <td class="text-center"><%= books[count].Author %></td>
+                  <td class="text-center"><%= books[count].Genre %></td>
+
+                  <td class="text-center">
+                    <!-- ------------------------ -->
+                    <!-- ADD the EDIT BUTTON HERE -->
+                    <!-- ------------------------ -->
+                    <form id="editForm#<%=count%>" action="/books/<%=books[count]._id%>" method="get">
+                      <button type="button" class="btn btn-warning" onclick="document.getElementById('editForm#<%=count%>').submit()">Edit</button>
+                    </form>
+                  </td>
+
+                  <td class="text-center">
+                    <!-- ------------------------ -->
+                    <!-- ADD the DELETE BUTTON HERE -->
+                    <!-- ------------------------ -->
+                    <form id="deleteForm#<%=count%>" action="/books/delete/<%=books[count]._id%>" method="get">
+                      <button type="button" class="btn btn-danger" onclick="document.getElementById('deleteForm#<%=count%>').submit()">Delete</button>
+                    </form>
+                  </td>
+                </tr>
+                <% } %>
+              </tbody>
+            </table>
+          </div>
+           <div class="col-md-offset-1 col-md-10 text-center">
+            <ul class="pagination pagination-lg pager" id="myPager"></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<% include ../partials/footer.ejs %>
+
+
